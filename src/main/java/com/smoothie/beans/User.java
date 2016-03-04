@@ -4,8 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "users")
 public class User {
 
 	@Id
@@ -16,21 +18,23 @@ public class User {
 	private String lastName;
 	private String email;
 	private String phoneNumber;
+	private String password;
+	private String role;
 
-	protected User() {
+	protected User() {}
 
-	}
-
-	public User(String firstName, String lastName, String email, String phoneNumber) {
+	public User(String firstName, String lastName, String email, String phoneNumber, String password, String role) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
+		this.password = password;
+		this.role = role;
 	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", phoneNumber=" + phoneNumber + "]";
+		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", phoneNumber=" + phoneNumber + ", role=" + role + "]";
 	}
 
 	public String getFirstName() {
@@ -63,6 +67,10 @@ public class User {
 
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+
+	public String getPassword() {
+		return password;
 	}
 
 	public long getId() {

@@ -1,4 +1,4 @@
-package com.smoothie.repository;
+package com.smoothie.repositories;
 
 import java.util.List;
 
@@ -9,4 +9,6 @@ import com.smoothie.beans.User;
 public interface UserRespository extends CrudRepository<User, Long> {
 
 	List<User> findByLastName(String lastName);
+
+	List<User> findByEmail(String email);
 }
