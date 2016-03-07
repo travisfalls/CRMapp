@@ -1,0 +1,10 @@
+insert into java301.users (first_name, last_name, password, email, phone_number, role) values ('Zach', 'Smith', 'abc123', 'zsmith@smoothie.com', '1234567890', 'USER');
+insert into java301.users (first_name, last_name, password, email, phone_number, role) values ('Julie', 'Williams', 'def456', 'jwilliams@smoothie.com', '1234561234', 'USER');
+insert into java301.users (first_name, last_name, password, email, phone_number, role) values ('Sven', 'Bjergson', 'lol123', 'sbjergson@smoothie.com', '1234564321', 'USER');
+insert into java301.users (first_name, last_name, password, email, phone_number, role) values ('Allison', 'Johns', 'password123', 'ajohns@smoothie.com', '1234565566', 'USER');
+insert into java301.users (first_name, last_name, password, email, phone_number, role) values ('Michael', 'Pabst', 'pbr123', 'mpabst@smoothie.com', '1234561289', 'USER');
+insert into java301.users (first_name, last_name, password, email, phone_number, role) values ('David', 'Anderson', 'dave123', 'danderson@smoothie.com', '1234165346', 'USER');
+insert into java301.users (first_name, last_name, password, email, phone_number, role) values ('Dana', 'Carter', 'fox123', 'dcarter@smoothie.com', '1234162146', 'USER');
+insert into java301.users (first_name, last_name, password, email, phone_number, role) values ('Ashley', 'Weston', 'wes123', 'aweston@smoothie.com', '1234165379', 'USER');
+insert into java301.users (first_name, last_name, password, email, phone_number, role) values ('Jason', 'Fredrick', 'pass123', 'jfredrick@smoothie.com', '1234165346', 'USER');
+insert into java301.users (first_name, last_name, password, email, phone_number, role) values ('Evelynn', 'Rogers', 'eve123', 'erogers@smoothie.com', '1234166269', 'USER');

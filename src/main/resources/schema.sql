@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS java301.users (
   last_name VARCHAR(45) NOT NULL,
   password VARCHAR(45) NOT NULL,
   email VARCHAR(128) NULL,
-  phone VARCHAR(10) NULL,
+  phone_number VARCHAR(10) NULL,
   role VARCHAR(16) NOT NULL DEFAULT 'USER',
   PRIMARY KEY (id));
 
