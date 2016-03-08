@@ -20,4 +20,10 @@ public class IndexController {
 		model.addAttribute("repoCount", userRepo.count());
 		return "greeting";
 	}
+
+	@RequestMapping("/")
+	public String listing(String name, Model model) {
+		model.addAttribute("users", userRepo.findAll());
+		return "list";
+	}
 }
