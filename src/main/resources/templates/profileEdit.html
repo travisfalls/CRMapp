@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Smoothie Co. User Edit</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+    <style type="text/css">
+    	.field {
+    		display: block;
+    		margin-bottom: 5px;
+    	}
+    	
+    	.field input, .field select {
+    		float: right;
+    		width: 170px;
+    	}
+
+    	form {
+    		width: 290px;
+    	}
+    </style>
+</head>
+<body>
+	<h1>User</h1>
+	<form th:action="@{|/user/${user.id}/edit|}" method="POST">
+		<input name="id" type="hidden" th:value="${user.id}"/>
+			
+		<div class="field">
+			<label for="firstName">First Name</label>
+			<input name="firstName" type="text" th:value="${user.firstName}"/>
+		</div>
+		
+		<div class="field">
+			<label for="lastName">Last Name</label>
+			<input name="lastName" type="text" th:value="${user.lastName}"/>
+		</div>
+		
+		<div class="field">
+			<label for="email">Email</label>
+			<input name="email" type="text" th:value="${user.email}"/>
+		</div>
+		
+		<div class="field">
+			<label for="password">Password</label>
+			<input name="password" type="password" th:value="${user.password}"/>
+		</div>
+		
+		<div class="field">
+			<label for="phoneNumber">Phone Number</label>
+			<input name="phoneNumber" type="text" th:value="${user.phoneNumber}"/>
+		</div>
+		
+		<div class="field">
+			<label for="role">Role</label>
+			<select th:field="${user.role}" name="role">
+				<option value="USER">USER</option>
+				<option value="ADMIN">ADMIN</option>
+			</select>
+		</div>
+		
+		<input type="submit" th:value="Update"/>
+		<a href="@{|/user/${user.id}/edit|}">Back</a>
+	</form>
+</body>
+</html>

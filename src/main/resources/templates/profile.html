@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Smoothie Co. User</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>User</h1>
+	<ul>
+		<li th:text="${user.firstName}"></li>
+		<li th:text="${user.lastName}"></li>
+		<li th:text="${user.email}"></li>
+		<li th:text="${user.phoneNumber}"></li>
+		<li th:text="${user.role}"></li>
+		<li><a href="/" th:href="@{|/user/${user.id}/edit|}">Edit</a></li>
+	</ul>
+	<a href="/">Back</a>
+</body>
+</html>
