@@ -22,7 +22,7 @@
 </head>
 <body>
 	<h1>User</h1>
-	<form th:action="@{|/user/${user.id}/edit|}" method="POST">
+	<form th:action="@{|/user/${user.id}/edit|}" enctype="multipart/form-data" method="POST">
 		<input name="id" type="hidden" th:value="${user.id}"/>
 			
 		<div class="field">
@@ -56,6 +56,16 @@
 				<option value="USER">USER</option>
 				<option value="ADMIN">ADMIN</option>
 			</select>
+		</div>
+		
+		<div class="field">
+			<label for="file">Image</label>
+			<input name="file" type="file"/>
+		</div>
+		
+		<div class="field">
+			<label for="removeImage">Remove Image?</label>
+			<input name="removeImage" type="checkbox" value="true"/>
 		</div>
 		
 		<input type="submit" th:value="Update"/>

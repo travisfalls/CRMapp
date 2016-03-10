@@ -6,12 +6,13 @@
 </head>
 <body>
 	<h1>User</h1>
-	<ul>
-		<li th:text="${user.firstName}"></li>
-		<li th:text="${user.lastName}"></li>
-		<li th:text="${user.email}"></li>
-		<li th:text="${user.phoneNumber}"></li>
-		<li th:text="${user.role}"></li>
+	<img id="avatar" src="" th:if="${userImage}" th:src="${userImage.htmlSrc}" alt="Profile Image" title="Profile Image"/>
+	<ul th:object="${user}">
+		<li th:text="*{firstName}"></li>
+		<li th:text="*{lastName}"></li>
+		<li th:text="*{email}"></li>
+		<li th:text="*{phoneNumber}"></li>
+		<li th:text="*{role}"></li>
 		<li><a href="/" th:href="@{|/user/${user.id}/edit|}">Edit</a></li>
 	</ul>
 	<a href="/">Back</a>

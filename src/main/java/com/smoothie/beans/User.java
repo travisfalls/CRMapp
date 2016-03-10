@@ -1,5 +1,6 @@
 package com.smoothie.beans;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +17,8 @@ public class User {
 
 	private String firstName;
 	private String lastName;
+
+	@Column(unique = true)
 	private String email;
 	private String phoneNumber;
 	private String password;

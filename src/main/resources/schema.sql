@@ -1,9 +1,6 @@
 CREATE SCHEMA IF NOT EXISTS java301;
 USE java301 ;
 
--- -----------------------------------------------------
--- Table java301.users
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS java301.users (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   first_name VARCHAR(45) NOT NULL,
@@ -14,10 +11,13 @@ CREATE TABLE IF NOT EXISTS java301.users (
   role VARCHAR(16) NOT NULL DEFAULT 'USER',
   PRIMARY KEY (id));
 
+CREATE TABLE IF NOT EXISTS java301.user_images (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  user_id INT UNSIGNED NOT NULL,
+  content_type VARCHAR(45) NOT NULL,
+  image BLOB NOT NULL,
+  PRIMARY KEY (id));
 
--- -----------------------------------------------------
--- Table java301.user_properties
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS java301.user_properties (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   user_id INT UNSIGNED NOT NULL,
