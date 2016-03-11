@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/basic">
 <head>
-    <title>Smoothie Co. User Edit</title>
+    <title>User Edit</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     
     <style type="text/css">
@@ -20,7 +20,7 @@
     	}
     </style>
 </head>
-<body>
+<body layout:fragment="content">
 	<h1>User</h1>
 	<form th:action="@{|/user/${user.id}/edit|}" enctype="multipart/form-data" method="POST">
 		<input name="id" type="hidden" th:value="${user.id}"/>
