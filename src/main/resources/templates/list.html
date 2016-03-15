@@ -13,7 +13,6 @@
 				<th>Last Name</th>
 				<th>Email</th>
 				<th>Phone</th>
-				<th>Role</th>
 				<th />
 			</tr>
 		</thead>
@@ -23,7 +22,6 @@
 				<td th:text="${user.lastName}"></td>
 				<td th:text="${user.email}"></td>
 				<td th:text="${user.phoneNumber}"></td>
-				<td th:text="${user.role}"></td>
 				<td><a href="/" th:href="@{|/user/${user.id}|}">Profile</a></td>
 			</tr>
 		</tbody>

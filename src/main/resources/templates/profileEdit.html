@@ -51,14 +51,6 @@
 		</div>
 		
 		<div class="field">
-			<label for="role">Role</label>
-			<select th:field="${user.role}" name="role">
-				<option value="USER">USER</option>
-				<option value="ADMIN">ADMIN</option>
-			</select>
-		</div>
-		
-		<div class="field">
 			<label for="file">Image</label>
 			<input name="file" type="file"/>
 		</div>
@@ -69,7 +61,7 @@
 		</div>
 		
 		<input type="submit" th:value="Update"/>
-		<a href="@{|/user/${user.id}/edit|}">Back</a>
+		<a href="/" th:href="@{|/user/${user.id}|}">Back</a>
 	</form>
 </body>
 </html>

@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS java301.users (
   password VARCHAR(45) NOT NULL,
   email VARCHAR(128) NULL,
   phone_number VARCHAR(10) NULL,
-  role VARCHAR(16) NOT NULL DEFAULT 'USER',
+  active tinyint(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (id));
 
 CREATE TABLE IF NOT EXISTS java301.user_images (
@@ -17,6 +17,13 @@ CREATE TABLE IF NOT EXISTS java301.user_images (
   content_type VARCHAR(45) NOT NULL,
   image BLOB NOT NULL,
   PRIMARY KEY (id));
+
+CREATE TABLE IF NOT EXISTS java301.user_roles (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  user_id INT UNSIGNED NOT NULL,
+  role VARCHAR(45) NOT NULL,
+  PRIMARY KEY (id));
+
 
 CREATE TABLE IF NOT EXISTS java301.user_properties (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,

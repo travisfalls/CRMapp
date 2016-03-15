@@ -26,4 +26,10 @@ public class Application {
 		registrationBean.addUrlMappings("/console/*");
 		return registrationBean;
 	}
+	//
+	// @Bean
+	// public SpringSecurityDialect securityDialect() {
+	// return new SpringSecurityDialect();
+	// }
+
 }

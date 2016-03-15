@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="http://www.springframework.org/schema/security">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title layout:title-pattern="$DECORATOR_TITLE - $CONTENT_TITLE">Smoothie Co.</title>
@@ -12,10 +12,9 @@
 	</style>
 </head>
 <body>
-	<!--/* Standard layout can be mixed with Layout Dialect */-->
-	<div th:replace="snippets/header :: header"></div>
-	
 	<div class="container tempfix">
+		<div th:replace="snippets/header :: header"></div>
+	
 		<div layout:fragment="content"></div>
 
 		<div th:replace="snippets/footer :: footer"></div>

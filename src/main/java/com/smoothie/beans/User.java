@@ -22,22 +22,22 @@ public class User {
 	private String email;
 	private String phoneNumber;
 	private String password;
-	private String role;
+	private boolean active;
 
 	protected User() {}
 
-	public User(String firstName, String lastName, String email, String phoneNumber, String password, String role) {
+	public User(String firstName, String lastName, String email, String phoneNumber, String password, boolean active) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
 		this.password = password;
-		this.role = role;
+		this.active = active;
 	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", phoneNumber=" + phoneNumber + ", password=" + password + ", role=" + role + "]";
+		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", phoneNumber=" + phoneNumber + ", password=" + password + ", active=" + active + "]";
 	}
 
 	public String getFirstName() {
@@ -80,14 +80,6 @@ public class User {
 		this.password = password;
 	}
 
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-
 	public long getId() {
 		return id;
 	}
@@ -95,4 +87,13 @@ public class User {
 	public void setId(long id) {
 		this.id = id;
 	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
 }
