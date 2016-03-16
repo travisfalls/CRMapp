@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 
 @SpringBootApplication
 @EnableJpaRepositories("com.smoothie.repositories")
@@ -26,10 +27,10 @@ public class Application {
 		registrationBean.addUrlMappings("/console/*");
 		return registrationBean;
 	}
-	//
-	// @Bean
-	// public SpringSecurityDialect securityDialect() {
-	// return new SpringSecurityDialect();
-	// }
+
+	@Bean
+	public SpringSecurityDialect securityDialect() {
+		return new SpringSecurityDialect();
+	}
 
 }
