@@ -3,6 +3,5 @@
 .settings/
 gradle/
 bin/
-gradlew*
 .gradle/
 .gradletasknamecache
