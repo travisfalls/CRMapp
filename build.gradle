@@ -12,7 +12,7 @@ apply plugin: 'eclipse'
 apply plugin: 'spring-boot'
 
 jar {
-    baseName = 'java301'
+    baseName = 'java302'
     version =  '0.1.0'
 }
 

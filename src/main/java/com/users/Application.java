@@ -1,4 +1,4 @@
-package com.smoothie;
+package com.users;
 
 import org.h2.server.web.WebServlet;
 import org.slf4j.Logger;
@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 
 @SpringBootApplication
-@EnableJpaRepositories("com.smoothie.repositories")
+@EnableJpaRepositories("com.users.repositories")
 public class Application {
 	private static final Logger log = LoggerFactory.getLogger(Application.class);
 

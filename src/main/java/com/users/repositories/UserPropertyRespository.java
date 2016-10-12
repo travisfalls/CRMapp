@@ -1,10 +1,10 @@
-package com.smoothie.repositories;
+package com.users.repositories;
 
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.smoothie.beans.UserProperty;
+import com.users.beans.UserProperty;
 
 public interface UserPropertyRespository extends CrudRepository<UserProperty, Long> {
 

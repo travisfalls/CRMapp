@@ -1,10 +1,10 @@
-package com.smoothie.repositories;
+package com.users.repositories;
 
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.smoothie.beans.UserImage;
+import com.users.beans.UserImage;
 
 public interface UserImageRepository extends CrudRepository<UserImage, Long> {
 

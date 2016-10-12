@@ -1,4 +1,4 @@
-package com.smoothie;
+package com.users;
 
 import javax.sql.DataSource;
 
@@ -43,7 +43,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.dataSource(dataSource)
 				.rolePrefix("")
 				.passwordEncoder(new PlaintextPasswordEncoder())
-				.usersByUsernameQuery("select email as username, password, active as enabled from java301.users where email = ?")
-				.authoritiesByUsernameQuery("select u.email as username, ur.role as authority from java301.users u inner join java301.user_roles ur on (u.id = ur.user_id) where u.email = ?");
+				.usersByUsernameQuery("select email as username, password, active as enabled from java302.users where email = ?")
+				.authoritiesByUsernameQuery("select u.email as username, ur.role as authority from java302.users u inner join java302.user_roles ur on (u.id = ur.user_id) where u.email = ?");
 	}
 }

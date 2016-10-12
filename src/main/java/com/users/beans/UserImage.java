@@ -1,4 +1,4 @@
-package com.smoothie.beans;
+package com.users.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

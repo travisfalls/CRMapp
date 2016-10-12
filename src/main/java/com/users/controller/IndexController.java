@@ -1,4 +1,4 @@
-package com.smoothie.controller;
+package com.users.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,17 +17,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.smoothie.beans.User;
-import com.smoothie.beans.UserImage;
-import com.smoothie.repositories.UserImageRepository;
-import com.smoothie.repositories.UserRespository;
+import com.users.beans.User;
+import com.users.beans.UserImage;
+import com.users.repositories.UserImageRepository;
+import com.users.repositories.UserRepository;
 
 @Controller
 public class IndexController {
 	private static final Logger log = LoggerFactory.getLogger(IndexController.class);
 
 	@Autowired
-	private UserRespository userRepo;
+	private UserRepository userRepo;
 
 	@Autowired
 	private UserImageRepository userImageRepo;
