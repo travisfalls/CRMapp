@@ -1,0 +1,2 @@
+I think I understand where we are evaluating whether a user is a USER or ADMIN but I don't understand where we told
+the app that they had different rights.
