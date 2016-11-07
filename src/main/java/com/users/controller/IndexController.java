@@ -21,6 +21,7 @@ import com.users.beans.User;
 import com.users.beans.UserImage;
 import com.users.repositories.UserImageRepository;
 import com.users.repositories.UserRepository;
+import com.users.security.PermissionService;
 
 @Controller
 public class IndexController {
@@ -31,6 +32,9 @@ public class IndexController {
 
 	@Autowired
 	private UserImageRepository userImageRepo;
+	
+	@Autowired
+	private PermissionService permissionService;
 
 	@RequestMapping("/greeting")
 	public String greeting(@RequestParam(value = "name", required = false, defaultValue = "World") String name, Model model) {
@@ -53,18 +57,22 @@ public class IndexController {
 	@RequestMapping("/user/{userId}")
 	public String profile(@PathVariable long userId, Model model) {
 		model.addAttribute("user", userRepo.findOne(userId));
-
+		
 		List<UserImage> images = userImageRepo.findByUserId(userId);
 		if (!CollectionUtils.isEmpty(images)) {
 			model.addAttribute("userImage", images.get(0));
 		}
+		model.addAttribute("permissions", permissionService);
 		return "profile";
 	}
 
 	@RequestMapping(value = "/user/{userId}/edit", method = RequestMethod.GET)
 	public String profileEdit(@PathVariable long userId, Model model) {
 		model.addAttribute("user", userRepo.findOne(userId));
-
+		if(!permissionService.canEditUser(userId)){
+			log.warn("Cannot allow user to edit" + userId);
+			return "profile";
+		}
 		List<UserImage> images = userImageRepo.findByUserId(userId);
 		if (!CollectionUtils.isEmpty(images)) {
 			model.addAttribute("userImage", images.get(0));
@@ -79,6 +87,10 @@ public class IndexController {
 			@RequestParam("file") MultipartFile file,
 			Model model) {
 
+		if(!permissionService.canEditUser(userId)){
+			log.warn("Cannot allow user to edit" + userId);
+			return "profile";
+		}
 		log.debug("Saving user " + user);
 		userRepo.save(user);
 		model.addAttribute("message", "User " + user.getEmail() + " saved.");
