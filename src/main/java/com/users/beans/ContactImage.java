@@ -18,7 +18,7 @@ public class ContactImage {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	private int contactId;
+	private long contactId;
 	private String contentType;
 	
 	@Lob
@@ -33,11 +33,11 @@ public class ContactImage {
 	}
 	
 	@Column(unique=true)
-	public int getContactId() {
+	public long getContactId() {
 		return contactId;
 	}
 
-	public void setContactId(int contactId) {
+	public void setContactId(long contactId) {
 		this.contactId = contactId;
 	}
 
@@ -61,7 +61,7 @@ public class ContactImage {
 		
 	}
 	
-	public ContactImage(int contactId) {
+	public ContactImage(long contactId) {
 		this.contactId = contactId;
 	}
 	
