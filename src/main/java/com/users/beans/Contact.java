@@ -38,6 +38,10 @@ public class Contact {
 	public Contact(){
 		
 	}
+	
+	public Contact(long userId){
+		this.userId = userId;
+	}
 
 	public long getId() {
 		return id;
