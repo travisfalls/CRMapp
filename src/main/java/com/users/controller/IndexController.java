@@ -25,6 +25,7 @@ import com.users.beans.UserImage;
 import com.users.repositories.UserImageRepository;
 import com.users.repositories.UserRepository;
 import com.users.security.PermissionService;
+import com.users.service.ImageService;
 
 @Controller
 public class IndexController {
@@ -38,6 +39,9 @@ public class IndexController {
 	
 	@Autowired
 	private PermissionService permissionService;
+	
+	@Autowired
+	private ImageService imageService;
 
 	@RequestMapping("/greeting")
 	public String greeting(@RequestParam(value = "name", required = false, defaultValue = "World") String name, Model model) {
@@ -66,6 +70,11 @@ public class IndexController {
 	@RequestMapping("/myprofile")
 	public String myProfile(Model model) {
 		return profile(permissionService.findCurrentUserId(), model);
+	}
+	
+	@RequestMapping("/register")
+	public String register(Model model) {
+		return createUser(model);
 	}
 
 	@RequestMapping("/user/{userId}")
@@ -114,48 +123,35 @@ public class IndexController {
 		userRepo.save(user);
 		model.addAttribute("message", "User " + user.getEmail() + " saved.");
 
-		if (!file.isEmpty()) {
-			try {
-				List<UserImage> images = userImageRepo.findByUserId(user.getId());
-				UserImage img = (images.size() > 0) ? images.get(0) : new UserImage(userId);
-				img.setContentType(file.getContentType());
-				img.setImage(file.getBytes());
-				userImageRepo.save(img);
+		model.addAttribute("message", "User " + user.getEmail() + " saved.");
 
-				log.debug("Saved Image");
-			} catch (Exception e) {
-				throw new RuntimeException(e);
+		if(removeImage) {
+				imageService.deleteImage(user);
+			} else {
+				imageService.saveImage(file, user);
 			}
-
-		} else if (removeImage) {
-			log.debug("Removing Image");
-			// user.setImage(null);
-			List<UserImage> images = userImageRepo.findByUserId(user.getId());
-
-			for (UserImage img : images) {
-				userImageRepo.delete(img);
-			}
-		}
-
+		
 		return profile(userId, model);
 	}
 	
-	@Secured("ROLE_ADMIN")
+	
 	@RequestMapping(value = "/user/create", method = RequestMethod.GET)
-	public String createContact(Model model) {
+	public String createUser(Model model) {
 		model.addAttribute("user", new User());
 		
 		return "userCreate";
 	}
 	
 	//Allows create contact view to pull in user information and file. Then posts it to the user repo and saves it.
-	@Secured("ROLE_ADMIN")
 	@RequestMapping(value = "/user/create", method = RequestMethod.POST)
-	public String createContact(@ModelAttribute User user,
+	public String createUser(@ModelAttribute User user,
 			@RequestParam("file") MultipartFile file, Model model) {
 
+		log.info(user.toString());
 		User savedUser = userRepo.save(user);
 		
-	return profileSave(savedUser, savedUser.getId(), false, file, model);
+	return profile(savedUser.getId(), model);
 	}
+	
+	
 }

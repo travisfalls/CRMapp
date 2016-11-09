@@ -7,11 +7,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body layout:fragment="content">
-	<h1>Contact</h1>
+	<h1>Create User</h1>
 	<form th:action="@{|/user/create|}" enctype="multipart/form-data"
 		method="POST">
-
-		<input name="userId" type="hidden" th:value="${user.userId}" />
 
 		<div class="field">
 			<label for="firstName">First Name</label> <input name="firstName"
@@ -31,6 +29,11 @@
 		<div class="field">
 			<label for="phoneNumber">Phone Number</label> <input
 				name="phoneNumber" type="text" th:value="${user.phoneNumber}" />
+		</div>
+		
+		<div class="field">
+			<label for="password">Password</label> <input
+				name="password" type="text" th:value="${user.password}" />
 		</div>
 		
 		<div class="field">

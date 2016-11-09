@@ -11,8 +11,6 @@
 	<form th:action="@{|/contact/create|}" enctype="multipart/form-data"
 		method="POST">
 
-		<input name="userId" type="hidden" th:value="${contact.userId}" />
-
 		<div class="field">
 			<label for="firstName">First Name</label> <input name="firstName"
 				type="text" th:value="${contact.firstName}" />

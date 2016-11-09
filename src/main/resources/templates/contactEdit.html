@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/basic">
 <head>
-    <title>User Edit</title>
+    <title>Contact Edit</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     
     <style type="text/css">
@@ -24,6 +24,7 @@
 	<h1>Contact</h1>
 	<form th:action="@{|/contact/${contact.id}/edit|}" enctype="multipart/form-data" method="POST">
 		<input name="id" type="hidden" th:value="${contact.id}"/>
+		<input name="userId" type="hidden" th:value="${contact.userId}"/>
 			
 		<div class="field">
 			<label for="firstName">First Name</label>
