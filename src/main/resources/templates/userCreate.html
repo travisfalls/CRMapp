@@ -8,39 +8,39 @@
 </head>
 <body layout:fragment="content">
 	<h1>Contact</h1>
-	<form th:action="@{|/contact/create|}" enctype="multipart/form-data"
+	<form th:action="@{|/user/create|}" enctype="multipart/form-data"
 		method="POST">
 
-		<input name="userId" type="hidden" th:value="${contact.userId}" />
+		<input name="userId" type="hidden" th:value="${user.userId}" />
 
 		<div class="field">
 			<label for="firstName">First Name</label> <input name="firstName"
-				type="text" th:value="${contact.firstName}" />
+				type="text" th:value="${user.firstName}" />
 		</div>
 
 		<div class="field">
 			<label for="lastName">Last Name</label> <input name="lastName"
-				type="text" th:value="${contact.lastName}" />
+				type="text" th:value="${user.lastName}" />
 		</div>
 
 		<div class="field">
 			<label for="email">Email</label> <input name="email" type="text"
-				th:value="${contact.email}" />
+				th:value="${user.email}" />
 		</div>
 
 		<div class="field">
 			<label for="phoneNumber">Phone Number</label> <input
-				name="phoneNumber" type="text" th:value="${contact.phoneNumber}" />
+				name="phoneNumber" type="text" th:value="${user.phoneNumber}" />
 		</div>
 		
 		<div class="field">
 			<label for="twitterHandle">Twitter Handle</label> <input
-				name="twitterHandle" type="text" th:value="${contact.twitterHandle}" />
+				name="twitterHandle" type="text" th:value="${user.twitterHandle}" />
 		</div>
 		
 		<div class="field">
 			<label for="facebookUrl">Facebook URL</label> <input
-				name="facebookUrl" type="text" th:value="${contact.facebookUrl}" />
+				name="facebookUrl" type="text" th:value="${user.facebookUrl}" />
 		</div>
 
 		<div class="field">
