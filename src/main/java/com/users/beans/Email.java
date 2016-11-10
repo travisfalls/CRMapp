@@ -1,8 +1,8 @@
 package com.users.beans;
 
-import javax.persistence.Entity;
 
-@Entity
+
+
 public class Email {
 	
 	private String to;
