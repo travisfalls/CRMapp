@@ -1,0 +1,12 @@
+Step 3:
+Added User & Admin roles allowing each to have access to specific sections of the app.
+
+Step 4:
+We added the ability to add Twitter & Facebook links to profiles.
+I learned how "NULL" and "NOT NULL" work in the schema.
+Ran into issues with certain Facebook urls not working. Adding a "/" to the end of the url fixed it.
+
+Step 5:
+We added the ability to register as a new user.
+It felt good knowing halfway through that my new user wasn't able to see anything because they hadn't been assigned a role yet.
+I was starting to understand what the next steps would be before I had gotten to them.
