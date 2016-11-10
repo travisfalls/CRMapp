@@ -3,9 +3,14 @@
 <head>
     <title>Users</title>
     <meta http-equiv=" Content-Type" content="text/html; charset=UTF-8" />
+    
 </head>
 <body layout:fragment="content">
 	<h1>Users</h1>
+	<form th:action="@{|/user/search|}" method="POST">
+	   <input type="text" placeholder="Search..." name="search" th:value="${search}" />
+	   <input type="submit" th:value="Search"/>
+	</form> 
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -22,7 +27,7 @@
 				<td th:text="${user.lastName}"></td>
 				<td th:text="${user.email}"></td>
 				<td th:text="${user.phoneNumber}"></td>
-				<td><a href="/" th:href="@{|/user/${user.id}|}">Profile</a></td>
+				<td><a href="/" th:href="@{|/user/${user.id}|}"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></td>
 			</tr>
 		</tbody>
 	</table>

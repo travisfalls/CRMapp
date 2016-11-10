@@ -1,0 +1,43 @@
+body {
+	background-color: #f4f4f4;
+	color: #333333;
+}
+
+a :hover {
+	text-decoration: none;
+}
+
+.navbar {
+	background-color: #498691;
+}
+
+.navbar a {
+	color: #f4f4f4;
+	transition: all 0.2s ease;
+}
+
+.navbar a:hover {
+	color: #243A3E;
+	background-color: transparent;
+}
+
+.navbar li a:hover {
+	background-color: transparent;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th{
+	background-color: #498691;
+	transition: all 0.2s ease;
+}
+
+td a{
+	color: #333333;
+	text-decoration: none;
+	transition: all 0.2s ease;
+}
+
+td :hover {
+	color: #f4f4f4;
+	text-decoration: none;
+}
+

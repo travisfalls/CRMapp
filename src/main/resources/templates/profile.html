@@ -1,21 +1,48 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/basic">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layouts/basic">
 <head>
-    <title>User</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>User</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body layout:fragment="content">
 	<h1>User</h1>
-	<img id="avatar" src="" th:if="${userImage}" th:src="${userImage.htmlSrc}" alt="Profile Image" title="Profile Image"/>
-	<ul th:object="${user}">
-		<li th:text="*{firstName}"></li>
-		<li th:text="*{lastName}"></li>
-		<li th:text="*{email}"></li>
-		<li th:text="*{phoneNumber}"></li>
-		<li th:if="*{! #strings.isEmpty(twitterHandle)}"><a target="_blank" th:href="@{|https://twitter.com/*{twitterHandle}|}" th:text="*{twitterHandle}"></a></li>
-		<li th:if="*{! #strings.isEmpty(facebookUrl)}"><a target="_blank" th:href="@{|*{facebookUrl}|}" th:text="*{facebookUrl}"></a></li>
-		<li th:if="${permissions.canAccessUser(user.id)}"><a href="/" th:href="@{|/user/${user.id}/edit|}">Edit</a></li>
-	</ul>
-	<a href="/">Back</a>
+	<img id="avatar" src="" th:if="${userImage}"
+		th:src="${userImage.htmlSrc}" alt="Profile Image"
+		title="Profile Image" />
+	<div>
+		<dl class="dl-horizontal" th:object="${user}">
+			<dt>First Name</dt>
+			<dd th:text="*{firstName}"></dd>
+
+			<dt>Last Name</dt>
+			<dd th:text="*{lastName}"></dd>
+
+			<dt>Email</dt>
+			<dd th:text="*{email}"></dd>
+
+			<dt>Phone Number</dt>
+			<dd th:text="*{phoneNumber}"></dd>
+
+			<dt>Twitter</dt>
+			<dd th:if="*{! #strings.isEmpty(twitterHandle)}">
+				<a target="_blank"
+					th:href="@{|https://twitter.com/*{twitterHandle}|}"
+					th:text="*{twitterHandle}"></a>
+			</dd>
+
+			<dt>Facebook</dt>
+			<dd th:if="*{! #strings.isEmpty(facebookUrl)}">
+				<a target="_blank" th:href="@{|*{facebookUrl}|}"
+					th:text="*{facebookUrl}"></a>
+			</dd>
+		</dl>
+	</div>
+	<div>
+		<a th:if="${permissions.canAccessUser(user.id)}"
+			th:href="@{|/user/${user.id}/edit|}" class="btn btn-primary">Edit</a>
+		<a href="/">Back</a>
+	</div>
 </body>
 </html>

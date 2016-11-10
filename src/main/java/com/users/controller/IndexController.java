@@ -182,5 +182,16 @@ public class IndexController {
 
 		return "sendMail";
 	}
+	
+	@Secured("ROLE_ADMIN")
+	@RequestMapping(value = "/user/search", method = RequestMethod.POST)
+	public String searchUsers(@RequestParam("search") String search, Model model) {
+		log.debug("Searching by " + search);
+		model.addAttribute("users",
+				userRepo.findByLastNameOrFirstNameOrEmailOrTwitterHandleOrFacebookUrlIgnoreCase(
+						search, search, search, search, search));
+		model.addAttribute("search", search);
+		return "listUsers";
+	}
 
 }

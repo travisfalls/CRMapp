@@ -69,9 +69,11 @@
 			<label for="removeImage">Remove Image?</label>
 			<input name="removeImage" type="checkbox" value="true"/>
 		</div>
+		<button class="btn btn-primary" type="submit" th:value="Update">Update</button>
+		<!-- <input type="submit" th:value="Update"/> -->
 		
-		<input type="submit" th:value="Update"/>
 		<a href="/" th:href="@{|/user/${user.id}|}">Back</a>
+		
 	</form>
 </body>
 </html>
