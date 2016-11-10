@@ -19,9 +19,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.users.beans.Contact;
 import com.users.beans.ContactImage;
+import com.users.beans.User;
 import com.users.repositories.ContactImageRepository;
 import com.users.repositories.ContactRepository;
 import com.users.security.PermissionService;
+import static org.h2.util.StringUtils.isNullOrEmpty;
 
 @Controller
 public class ContactController {
@@ -136,6 +138,38 @@ public class ContactController {
 		Contact savedContact = contactRepo.save(contact);
 		
 		return profileSave(savedContact, savedContact.getId(), false, file, model);
+	}
+	
+	@Secured("ROLE_USER")
+	@RequestMapping(value = "/email/contact/{contactId}", method = RequestMethod.GET)
+	public String prepEmailContact(@PathVariable long contactId, Model model) {
+		User user = permissionService.findCurrentUser();
+		Contact contact = contactRepo.findByUserIdAndId(user.getId(), contactId);
+
+		StringBuilder message = new StringBuilder().append("Your friend ")
+				.append(user.getFirstName()).append(" ").append(user.getLastName())
+				.append(" has forwarded you the following contact:\n\n")
+				.append(contact.getFirstName()).append(" ").append(contact.getLastName())
+				.append("\n");
+		if (!isNullOrEmpty(contact.getEmail())) {
+			message.append("Email: ").append(contact.getEmail()).append("\n");
+		}
+		if (!isNullOrEmpty(contact.getPhoneNumber())) {
+			message.append("Phone: ").append(contact.getPhoneNumber()).append("\n");
+		}
+		if (!isNullOrEmpty(contact.getTwitterHandle())) {
+			message.append("Twitter: ").append(contact.getTwitterHandle()).append("\n");
+		}
+		if (!isNullOrEmpty(contact.getFacebookUrl())) {
+			message.append("Facebook: ").append(contact.getFacebookUrl()).append("\n");
+		}
+
+		model.addAttribute("message", message.toString());
+		model.addAttribute("pageTitle", "Forward Contact");
+		model.addAttribute("subject",
+				"Introducing " + contact.getFirstName() + " " + contact.getLastName());
+
+		return "sendMail";
 	}
 	
 }
