@@ -1,6 +1,7 @@
 package com.users.controller;
 
 import static com.users.security.Role.ROLE_ADMIN;
+import static com.users.security.Role.ROLE_USER;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,8 +23,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.users.beans.User;
 import com.users.beans.UserImage;
+import com.users.beans.UserRole;
 import com.users.repositories.UserImageRepository;
 import com.users.repositories.UserRepository;
+import com.users.repositories.UserRoleRepository;
 import com.users.security.PermissionService;
 import com.users.service.ImageService;
 
@@ -36,6 +39,9 @@ public class IndexController {
 
 	@Autowired
 	private UserImageRepository userImageRepo;
+	
+	@Autowired
+	private UserRoleRepository userRoleRepo;
 	
 	@Autowired
 	private PermissionService permissionService;
@@ -149,6 +155,9 @@ public class IndexController {
 
 		log.info(user.toString());
 		User savedUser = userRepo.save(user);
+		UserRole role = new UserRole(savedUser, ROLE_USER);
+		userRoleRepo.save(role);
+		imageService.saveImage(file, savedUser);
 		
 	return profile(savedUser.getId(), model);
 	}

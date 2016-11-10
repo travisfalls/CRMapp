@@ -31,6 +31,10 @@
 						th:class="${#httpServletRequest.requestURI.contains('user')?'active':null}">
 						<a href="#" th:href="@{/myprofile}">My Profile</a>
 					</li>
+					<li sec:authorize="hasRole('ROLE_USER')"
+						th:class="${#httpServletRequest.requestURI.contains('user')?'active':null}">
+						<a href="#" th:href="@{/myprofile}">My Profile</a>
+					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right"
 					sec:authorize="isAuthenticated()">
