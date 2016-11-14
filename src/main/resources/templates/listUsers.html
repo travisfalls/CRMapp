@@ -8,8 +8,8 @@
 <body layout:fragment="content">
 	<h1>Users</h1>
 	<form th:action="@{|/user/search|}" method="POST">
-	   <input type="text" placeholder="Search..." name="search" th:value="${search}" />
-	   <input type="submit" th:value="Search"/>
+	   <input class="form-group" id="search-bar" type="text" placeholder="Search..." name="search" th:value="${search}"/>
+	   <input class="btn btn-custom" type="submit" th:value="Search"/>
 	</form> 
 	<table class="table table-hover">
 		<thead>
@@ -31,6 +31,6 @@
 			</tr>
 		</tbody>
 	</table>
-	<a th:href="@{|/user/create|}"><button class="btn btn-primary">Create User</button></a>
+	<a class="btn btn-custom" th:href="@{|/user/create|}">Create User</a>
 </body>
 </html>
