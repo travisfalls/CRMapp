@@ -6,7 +6,7 @@
     
 </head>
 <body layout:fragment="content">
-	<h1>Users</h1>
+	<h1>People</h1>
 	<form th:action="@{|/user/search|}" method="POST">
 	   <input class="form-group" id="search-bar" type="text" placeholder="Search..." name="search" th:value="${search}"/>
 	   <input class="btn btn-custom" type="submit" th:value="Search"/>
