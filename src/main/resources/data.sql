@@ -30,3 +30,17 @@ insert into java302.contacts (first_name, last_name, email, phone_number, active
 insert into java302.contacts (first_name, last_name, email, phone_number, active, user_id) values ('Ashley', 'Weston', 'aweston@smoothie.com', '1234165379', true, (select id from java302.users where email = 'jwilliams@smoothie.com'));
 insert into java302.contacts (first_name, last_name, email, phone_number, active, user_id) values ('Jason', 'Fredrick', 'jfredrick@smoothie.com', '1234165346', true, (select id from java302.users where email = 'zsmith@smoothie.com'));
 insert into java302.contacts (first_name, last_name, email, phone_number, active, user_id) values ('Evelynn', 'Rogers', 'erogers@smoothie.com', '1234166269', true, (select id from java302.users where email = 'zsmith@smoothie.com'));
+
+insert into java302.groups (group_name, meeting_day) values ('Singles Group', 'Monday Night');
+insert into java302.groups (group_name, meeting_day) values ('Young Adults Group', 'Wednesday Night');
+insert into java302.groups (group_name, meeting_day) values ('Youth Group', 'Sunday Night');
+
+insert into java302.group_members (group_id, user_id) values (1, (select id from java302.users where email = 'jwilliams@smoothie.com'));
+insert into java302.group_members (group_id, user_id) values (1, (select id from java302.users where email = 'ajohns@smoothie.com'));
+insert into java302.group_members (group_id, user_id) values (1, (select id from java302.users where email = 'danderson@smoothie.com'));
+insert into java302.group_members (group_id, user_id) values (2, (select id from java302.users where email = 'erogers@smoothie.com'));
+insert into java302.group_members (group_id, user_id) values (2, (select id from java302.users where email = 'mpabst@smoothie.com'));
+insert into java302.group_members (group_id, user_id) values (2, (select id from java302.users where email = 'dcarter@smoothie.com'));
+insert into java302.group_members (group_id, user_id) values (3, (select id from java302.users where email = 'zsmith@smoothie.com'));
+insert into java302.group_members (group_id, user_id) values (3, (select id from java302.users where email = 'sbjergson@smoothie.com'));
+insert into java302.group_members (group_id, user_id) values (3, (select id from java302.users where email = 'aweston@smoothie.com'));

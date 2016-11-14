@@ -3,6 +3,7 @@ package com.users.controller;
 import static com.users.security.Role.ROLE_ADMIN;
 import static com.users.security.Role.ROLE_USER;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +14,7 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +27,8 @@ import com.users.beans.Email;
 import com.users.beans.User;
 import com.users.beans.UserImage;
 import com.users.beans.UserRole;
+import com.users.repositories.GroupMemberRepository;
+import com.users.repositories.GroupRepository;
 import com.users.repositories.UserImageRepository;
 import com.users.repositories.UserRepository;
 import com.users.repositories.UserRoleRepository;
@@ -44,6 +48,12 @@ public class IndexController {
 
 	@Autowired
 	private UserRoleRepository userRoleRepo;
+	
+	@Autowired
+	private GroupRepository groupRepo;
+	
+	@Autowired
+	private GroupMemberRepository groupMemberRepo;
 
 	@Autowired
 	private PermissionService permissionService;
@@ -78,7 +88,21 @@ public class IndexController {
 		model.addAttribute("users", userRepo.findAllByOrderByFirstNameAscLastNameAsc());
 		return "listUsers";
 	}
-
+	
+	@Secured("ROLE_ADMIN")
+	@RequestMapping("/groups")
+	public String listGroups(Model model) {
+		model.addAttribute("groups", groupRepo.findAll());
+		return "listGroups";
+	}
+	
+	@Secured("ROLE_ADMIN")
+	@RequestMapping("/group/{groupId}/groupmembers")
+	public String listGroupMembers(@PathVariable long groupId, Model model) {
+		model.addAttribute("groupMembers", groupMemberRepo.findByGroupId(groupId));
+		return "groupMembers";
+	}
+	
 	@RequestMapping("/myprofile")
 	public String myProfile(Model model) {
 		return profile(permissionService.findCurrentUserId(), model);

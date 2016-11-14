@@ -21,7 +21,11 @@
 					<li><a href="#" th:href="@{/contacts}">Contacts</a></li> -->
 					<li sec:authorize="hasRole('ROLE_ADMIN')"
 						th:class="${#httpServletRequest.requestURI.contains('user')?'active':null}">
-						<a href="#" th:href="@{/users}">Users</a>
+						<a href="#" th:href="@{/users}">People</a>
+					</li>
+					<li sec:authorize="hasRole('ROLE_ADMIN')"
+						th:class="${#httpServletRequest.requestURI.contains('group')?'active':null}">
+						<a href="#" th:href="@{/groups}">Groups</a>
 					</li>
 					<li sec:authorize="hasRole('ROLE_USER')"
 						th:class="${#httpServletRequest.requestURI.contains('user')?'active':null}">
