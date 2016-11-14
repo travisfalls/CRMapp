@@ -1,14 +1,41 @@
 body {
-	background-color: #f4f4f4;
+	background-color: #f6f6f6;
 	color: #333333;
 }
 
-a :hover {
+#login-body {
+	background-color: #333333;
+	background: url('branches_worship.jpg') no-repeat;
+}
+
+#login-panel {
+	background-color: rgba(255, 255, 255, 0.95);
+	border-radius: 5px;
+	width: 400px;
+	margin: 200px auto 0 auto;
+	padding: 10px 0 20px 40px;
+}
+
+#login-panel label{
+	padding: 5px 0px 5px 0px
+}
+
+#login-panel a:hover {
+	color: #93B730;
 	text-decoration: none;
 }
 
+a {
+	color: #a6ce39;
+}
+
+
+#brand-logo {
+	color: #a6ce39;
+}
+
 .navbar {
-	background-color: #498691;
+	background-color: #333333;
 }
 
 .navbar a {
@@ -17,7 +44,7 @@ a :hover {
 }
 
 .navbar a:hover {
-	color: #243A3E;
+	color: #a6ce39;
 	background-color: transparent;
 }
 
@@ -26,7 +53,7 @@ a :hover {
 }
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th{
-	background-color: #498691;
+	background-color: #a6ce39;
 	transition: all 0.2s ease;
 }
 
@@ -40,4 +67,32 @@ td :hover {
 	color: #f4f4f4;
 	text-decoration: none;
 }
+
+.btn-custom {
+	color: #ffffff;
+	background-color: #a6ce39;
+	border-color: #9FC535;
+	transition: all 0.2s ease;
+}
+
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom:active,
+.btn-custom.active {
+	color: #ffffff;
+	background-color: #93B730;
+	border-color: #93B730;
+}
+
+.clearfix {
+	clear: both;
+}
+
+#search-bar {
+	height: 33px;
+	width: 400px;
+	border-radius: 5px;
+	box-shadow: none;
+}
+
 
