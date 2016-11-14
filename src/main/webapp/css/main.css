@@ -3,9 +3,29 @@ body {
 	color: #333333;
 }
 
+form {
+	display: table;
+}
+
+p {
+	display: table-row;
+}
+
+label {
+	display: table-cell;
+}
+
+input {
+	display: table-cell;
+}
+
 #login-body {
 	background-color: #333333;
-	background: url('branches_worship.jpg') no-repeat;
+	background: url('bible_study_large.jpg') center center no-repeat;
+}
+
+#login-body .btn-custom {
+	margin: 10px 0 5px 0;
 }
 
 #login-panel {
@@ -16,8 +36,12 @@ body {
 	padding: 10px 0 20px 40px;
 }
 
-#login-panel label{
+#login-panel label {
 	padding: 5px 0px 5px 0px
+}
+
+#login-panel a {
+	color: #333333;
 }
 
 #login-panel a:hover {
@@ -25,10 +49,13 @@ body {
 	text-decoration: none;
 }
 
-a {
-	color: #a6ce39;
+.login-input {
+	width: 300px;
 }
 
+a {
+	color: #333333;
+}
 
 #brand-logo {
 	color: #a6ce39;
@@ -52,12 +79,12 @@ a {
 	background-color: transparent;
 }
 
-.table-hover tbody tr:hover td, .table-hover tbody tr:hover th{
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
 	background-color: #a6ce39;
 	transition: all 0.2s ease;
 }
 
-td a{
+td a {
 	color: #333333;
 	text-decoration: none;
 	transition: all 0.2s ease;
@@ -75,10 +102,8 @@ td :hover {
 	transition: all 0.2s ease;
 }
 
-.btn-custom:hover,
-.btn-custom:focus,
-.btn-custom:active,
-.btn-custom.active {
+.btn-custom:hover, .btn-custom:focus, .btn-custom:active, .btn-custom.active
+	{
 	color: #ffffff;
 	background-color: #93B730;
 	border-color: #93B730;
@@ -94,5 +119,3 @@ td :hover {
 	border-radius: 5px;
 	box-shadow: none;
 }
-
-
