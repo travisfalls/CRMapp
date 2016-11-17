@@ -16,8 +16,11 @@
 		
 		<li th:if="*{! #strings.isEmpty(facebookUrl)}"><a target="_blank" th:href="@{|*{facebookUrl}|}" th:text="*{facebookUrl}"></a></li>
 		
-		<li><a href="/" th:href="@{|/contact/${contact.id}/edit|}">Edit</a></li>
+	
 	</ul>
+	
+	<a th:href="@{|/contact/${contact.id}/edit|}" class="btn btn-custom">Edit</a>
 	<a href="/">Back</a>
+	
 </body>
 </html>
